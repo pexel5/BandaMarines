@@ -354,6 +354,7 @@
 	set_light_color(color)
 
 /atom/movable/proc/onZImpact(turf/impact_turf, height)
+
 	INVOKE_ASYNC(src, PROC_REF(SpinAnimation), 5, 2)
 
 // SS220 ADD Start
@@ -373,3 +374,9 @@
 	if(buckled_mob)
 		buckled_mob.set_glide_size(target)
 // SS220 ADD End
+
+	if(height <= 0)
+		return
+
+	INVOKE_ASYNC(src, PROC_REF(SpinAnimation), 5, 2)
+
